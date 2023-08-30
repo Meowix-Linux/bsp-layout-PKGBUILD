@@ -27,7 +27,6 @@ install:
 	chmod 644 ${MANPAGE} # Manpage permission
 	chmod 755 ${SRC_PATH}/layouts/*.sh
 	chmod 755 ${SRC_PATH}/layout.sh
-	ln -sf ${SRC_PATH}/layout.sh ${BINARY_PATH}/bsp-layout # Create bin
 	echo "Installed bsp-layout"
 
 .PHONY: install uninstall

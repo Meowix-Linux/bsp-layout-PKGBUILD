@@ -1,7 +1,7 @@
 # Maintainer: Nekosis <37462865+Nekosis@users.noreply.github.com>
 pkgname='bsp-layout'
 pkgver=0.0.10
-pkgrel=4
+pkgrel=5
 pkgdesc="Manage layouts in bspwm (tall and wide)"
 arch=('any')
 url="https://github.com/phenax/bsp-layout"
@@ -24,4 +24,6 @@ build() {
 package() {
     cd "$pkgname-$pkgver"
     make DESTDIR="$pkgdir/" PREFIX="/usr" install
+    sed -i '4s/.*/export ROOT="\/usr\/lib\/bsp-layout";/' "$pkgdir/usr/lib/bsp-layout/layout.sh"
+    ln -sf /usr/lib/bsp-layout/layout.sh $pkgdir/usr/bin/bsp-layout
 }
